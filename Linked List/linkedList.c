@@ -41,7 +41,8 @@ void insertToTail(node* head, int key) {
 	ptr->next = tmp;
 }
 
-node* findByKey(node* head, int key) {
+node* findByKey(node* head, int key) { // find the node whose firstly has the equal key!
+
 	if (isEmpty(head)) {
 		printf("Empty list!\n");
 		return NULL;
@@ -49,11 +50,11 @@ node* findByKey(node* head, int key) {
 
 	node* ptr = head;
 
-	// find node whose node->key == key
 	while (ptr != NULL) {
 		if (ptr->key == key) break;
 		ptr = ptr->next;
 	}
+
 	if (ptr) {
 		printf("Found node whose key = %d in the list!\n", key);
 	} else {
@@ -73,11 +74,11 @@ void removeHead(node** head) {
 	}
 }
 
-void removeTail(node* head) {
-	if (isEmpty(head)) {
+void removeTail(node** head) {
+	if (isEmpty(*head)) {
 		printf("The list is empty!\n");
 	} else {
-		node* prevPtr = head;
+		node* prevPtr = *head;
 		node* ptr = prevPtr->next;
 		while (ptr->next != NULL) {
 			ptr = ptr->next;
@@ -90,14 +91,14 @@ void removeTail(node* head) {
 	}
 }
 
-void removeNodeByKey(node* head, int key) { // remove the node whose firstly has the equal key!
+void removeNodeByKey(node** head, int key) { // remove the node whose firstly has the equal key!
 
-	if (head->key == key) { // check if node need to delete is head
-		node* ptr = head;
-		head = head->next;
+	if ((*head)->key == key) { // check if node need to delete is head
+		node* ptr = *head;
+		*head = (*head)->next;
 		free(ptr);
 	} else {
-		node* prevPtr = head;
+		node* prevPtr = *head;
 		node* ptr = prevPtr->next;
 		while (ptr != NULL) {
 			if (ptr->key == key) {

@@ -25,14 +25,14 @@ int main() {
 	removeHead(&head);
 	printList(head);
 
-	removeTail(head);
+	removeTail(&head);
 	printList(head);
 	
 	node* tmp = findByKey(head, 3);
 	tmp = findByKey(head, 7);
 	printf("Length of the list: %d\n", lengthOfList(head));
-	removeNodeByKey(head, 10);
-	removeNodeByKey(head, 3);
+	removeNodeByKey(&head, 10);
+	removeNodeByKey(&head, 4);
 	printf("Length of the list: %d\n", lengthOfList(head));
 	printList(head);
 

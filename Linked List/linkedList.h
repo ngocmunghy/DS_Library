@@ -11,10 +11,10 @@ typedef struct listNode node;
 node* createNode(int key);
 void insertToHead(node** head, int key);
 void insertToTail(node* head, int key);
-node* findByKey(node* head, int key);
+node* findByKey(node* head, int key); // find the node whose firstly has the equal key!
 void removeHead(node** head);
-void removeTail(node* head);
-void removeNodeByKey(node* head, int key); // remove the node whose firstly has the equal key!
+void removeTail(node** head);
+void removeNodeByKey(node** head, int key); // remove the node whose firstly has the equal key!
 void printList(node* head);
 int isEmpty(node* head);
 int lengthOfList(node* head);
