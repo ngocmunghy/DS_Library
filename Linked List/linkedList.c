@@ -13,17 +13,15 @@ node* createNode(int key) {
 	return tmp;
 }
 
-node* insertToHead(node* head, int key) {
-	if (isEmpty(head)) {
+void insertToHead(node** head, int key) {
+	if (isEmpty(*head)) {
 		node* tmp = createNode(key);
-		head = tmp;
-		return tmp;
+		*head = tmp;
 	}
 
 	node* tmp = createNode(key);
-	tmp->next = head;
-	head = tmp;
-	return tmp;
+	tmp->next = *head;
+	*head = tmp;
 }
 
 void insertToTail(node* head, int key) {
@@ -64,15 +62,14 @@ node* findByKey(node* head, int key) {
 	return ptr;
 }
 
-node* removeHead(node* head) {
-	if (isEmpty(head)) {
+void removeHead(node** head) {
+	if (isEmpty(*head)) {
 		printf("The list is empty!\n");
 	} else {
-		node* ptr = head;
-		head = head->next;
+		node* ptr = *head;
+		*head = ptr->next;
 		free(ptr);
 		printf("Remove head node sucessfully\n");
-		return head;
 	}
 }
 
@@ -93,7 +90,7 @@ void removeTail(node* head) {
 	}
 }
 
-void removeNodeByKey(node* head, int key) {
+void removeNodeByKey(node* head, int key) { // remove the node whose firstly has the equal key!
 
 	if (head->key == key) { // check if node need to delete is head
 		node* ptr = head;

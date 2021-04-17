@@ -10,15 +10,19 @@ int main() {
 	insertToTail(head, 2);
 	insertToTail(head, 3);
 	insertToTail(head, 4);
-	// insertToTail(head, 5);
+	insertToTail(head, 5);
 	printList(head);
 
-	// head = insertToHead(head, 2);
-	// head = insertToHead(head, 3);
-	// head = insertToHead(head, 4);
-	// head = insertToHead(head, 5);
+	removeHead(&head);
+	printList(head);
 
-	head = removeHead(head);
+	insertToHead(&head, 2);
+	insertToHead(&head, 3);
+	insertToHead(&head, 4);
+	insertToHead(&head, 5);
+	printList(head);
+
+	removeHead(&head);
 	printList(head);
 
 	removeTail(head);
