@@ -10,7 +10,7 @@ int main() {
 	insertToTail(head, 2);
 	insertToTail(head, 3);
 	insertToTail(head, 4);
-	insertToTail(head, 5);
+	// insertToTail(head, 5);
 	printList(head);
 
 	// head = insertToHead(head, 2);
@@ -31,6 +31,8 @@ int main() {
 	removeNodeByKey(head, 3);
 	printf("Length of the list: %d\n", lengthOfList(head));
 	printList(head);
+
+	freeList(head);
 
 	return 0;
 }

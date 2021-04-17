@@ -121,6 +121,10 @@ void removeNodeByKey(node* head, int key) {
 }
 
 void printList(node* head) {
+	if(isEmpty(head)) {
+		printf("Empty list!\n");
+		return;
+	}
 	node* ptr = head;
 	while (ptr->next != NULL) {
 		printf("%d -> ", ptr->key);
@@ -137,4 +141,13 @@ int lengthOfList(node* head) {
 		ptr = ptr->next;
 	}
 	return length;
+}
+
+void freeList(node* head) {
+	node* ptr = head;
+	while(ptr != NULL) {
+		head = head->next;
+		free(ptr);
+		ptr = head;
+	}
 }

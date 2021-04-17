@@ -19,5 +19,6 @@ void removeNodeByKey(node* head, int key);
 void printList(node* head);
 int isEmpty(node* head);
 int lengthOfList(node* head);
+void freeList(node* head);
 
 #endif
