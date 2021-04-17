@@ -27,7 +27,6 @@ void pop(node** top) {
 	node* ptr = *top;
 	*top = ptr->next;
 	free(ptr);
-	// return top;
 }
 
 int peek(node* top) {
