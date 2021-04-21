@@ -2,8 +2,14 @@
 #include <stdlib.h>
 #include "mystack.h"
 
-int isEmptyStack(node* top) {
-	return !top;
+Stack* initStack() {
+	Stack* stack = (Stack*)malloc(sizeof(Stack));
+	stack->top = NULL;
+	return stack;
+}
+
+int isEmptyStack(Stack* stack) {
+	return stack->top == NULL;
 }
 
 node* createNode(int key) {
@@ -13,33 +19,38 @@ node* createNode(int key) {
 	return tmp;
 }
 
-void push(node** top, int x) {
+void push(Stack* stack, int x) {
 	node* tmp = createNode(x);
-	tmp->next = *top;
-	*top = tmp;
+	if(isEmptyStack(stack)) {
+		stack->top = tmp;
+		return;
+	}
+
+	tmp->next = stack->top;
+	stack->top = tmp;
 }
 
-void pop(node** top) {
-	if(isEmptyStack(*top)) {
+void pop(Stack* stack) {
+	if(isEmptyStack(stack)) {
 		printf("Empty Stack! Nothing to pop!\n");
 		return;
 	}
-	node* ptr = *top;
-	*top = ptr->next;
+	node* ptr = stack->top;
+	stack->top = ptr->next;
 	free(ptr);
 }
 
-int peak(node* top) {
-	return top->key;
+int peak(Stack* stack) {
+	return stack->top->key;
 }
 
-void printStack(node* top) {
-	if(isEmptyStack(top)) {
-		printf("Empty Stack! Nothing to show!\n");
+void printStack(Stack* stack) {
+	if(isEmptyStack(stack)) {
+		printf("Empty Stack!\n");
 		return;
 	}
 
-	node* ptr = top;
+	node* ptr = stack->top;
 	while(ptr->next != NULL) {
 		printf("%d -> ", ptr->key);
 		ptr = ptr->next;

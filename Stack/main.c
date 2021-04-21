@@ -3,15 +3,24 @@
 #include "mystack.h"
 
 int main() {
-	node* top = NULL;
-	push(&top, 1);
-	push(&top, 2);
-	push(&top, 3);
-	push(&top, 4);
-	pop(&top);
-	int val = peak(top);
-	printf("%d\n", val);
-	printStack(top);
+
+	Stack *stack = initStack();
+
+	push(stack, 1);
+	push(stack, 2);
+	push(stack, 3);
+	push(stack, 4);
+
+	printStack(stack);
+
+	pop(stack);
+	printStack(stack);
+	pop(stack);
+	printStack(stack);
+	pop(stack);
+	printStack(stack);
+	pop(stack);
+	printStack(stack);
 
 	return 0;
 }

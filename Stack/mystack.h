@@ -1,16 +1,21 @@
 #ifndef _MYSTACK_H
 #define _MYSTACK_H
 
-typedef struct StackNode {
+typedef struct node {
 	int key;
-	struct StackNode *next;
+	struct node *next;
 } node;
 
-int isEmptyStack(node* top);
+typedef struct Stack {
+	node *top;
+} Stack;
+
+Stack* initStack();
+int isEmptyStack(Stack* stack);
 node* createNode(int key);
-void push(node** top, int x);
-void pop(node** top);
-int peak(node* top); // return key in the top of stack
-void printStack(node* top);
+void push(Stack* stack, int x);
+void pop(Stack* stack);
+int peak(Stack* stack); // return key in the top of stack
+void printStack(Stack* stack);
 
 #endif
