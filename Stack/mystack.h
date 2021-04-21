@@ -12,7 +12,7 @@ int isEmptyStack(node* top);
 node* createNode(int key);
 void push(node** top, int x);
 void pop(node** top);
-int peek(node* top); // return key in the top of stack
+int peak(node* top); // return key in the top of stack
 void printStack(node* top);
 
 #endif

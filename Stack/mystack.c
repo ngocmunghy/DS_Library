@@ -29,7 +29,7 @@ void pop(node** top) {
 	free(ptr);
 }
 
-int peek(node* top) {
+int peak(node* top) {
 	return top->key;
 }
 

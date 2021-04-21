@@ -9,7 +9,7 @@ int main() {
 	push(&top, 3);
 	push(&top, 4);
 	pop(&top);
-	int val = peek(top);
+	int val = peak(top);
 	printf("%d\n", val);
 	printStack(top);
 
