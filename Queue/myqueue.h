@@ -6,15 +6,15 @@ typedef struct node {
 	struct node *next;
 } node;
 
-typedef struct queue {
+typedef struct Queue {
 	node *front, *rear;
-} queue;
+} Queue;
 
-queue* initQueue();
-int isEmptyQueue(queue *q);
+Queue* initQueue();
+int isEmptyQueue(Queue *q);
 node* createNode(int key);
-void enQueue(queue *q, int key);
-void deQueue(queue *q);
-void printQueue(queue *q);
+void enQueue(Queue *q, int key);
+void deQueue(Queue *q);
+void printQueue(Queue *q);
 
 #endif

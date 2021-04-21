@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include"myqueue.h"
 
-queue* initQueue() {
-	queue* q = (queue*)malloc(sizeof(queue));
+Queue* initQueue() {
+	Queue* q = (Queue*)malloc(sizeof(Queue));
 	q->rear = q->front = NULL;
 	return q;
 }
 
-int isEmptyQueue(queue *q) {
+int isEmptyQueue(Queue *q) {
 	return q->front == NULL;
 }
 
@@ -19,7 +19,7 @@ node* createNode(int key) {
 	return tmp;
 }
 
-void enQueue(queue *q, int key) {
+void enQueue(Queue *q, int key) {
 	node* tmp = createNode(key);
 	if (isEmptyQueue(q)) {
 		q->front = q->rear = tmp;
@@ -29,8 +29,8 @@ void enQueue(queue *q, int key) {
 	}
 }
 
-void deQueue(queue *q) {
-	if(isEmptyQueue(q)) {
+void deQueue(Queue *q) {
+	if (isEmptyQueue(q)) {
 		return;
 	}
 	node* tmp = q->front;
@@ -38,8 +38,8 @@ void deQueue(queue *q) {
 	free(tmp);
 }
 
-void printQueue(queue *q) {
-	if(isEmptyQueue(q)) {
+void printQueue(Queue *q) {
+	if (isEmptyQueue(q)) {
 		printf("Queue is empty!\n");
 		return;
 	}
