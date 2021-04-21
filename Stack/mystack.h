@@ -1,12 +1,10 @@
 #ifndef _MYSTACK_H
 #define _MYSTACK_H
 
-struct StackNode {
+typedef struct StackNode {
 	int key;
 	struct StackNode *next;
-};
-
-typedef struct StackNode node;
+} node;
 
 int isEmptyStack(node* top);
 node* createNode(int key);
